@@ -18,17 +18,17 @@ No real Ocean Ecostructures data is used.
 
 ## Català
 
-La consola permet congelar paràmetres exactes de governança sintètica del mètode.
+La consola permet congelar parameters exacts de governança sintètica del mètode.
 
-Les configuracions congelades es guarden localment al navegador i es mostren en un dashboard comparatiu.
+Les configurations congelades es guarden localment al navegador i es mostren en un dashboard comparatiu.
 
 Un revisor pot:
 
-- congelar el conjunt actual de paràmetres;
-- comparar configuracions congelades;
+- congelar el conjunt actual de parameters;
+- comparar configurations congelades;
 - reaplicar una configuració congelada;
 - eliminar una configuració congelada;
-- imprimir un informe de governança amb els paràmetres globals seleccionats.
+- imprimir un informe de governança amb els parameters globals seleccionats.
 
 No s'utilitzen dades reals d'Ocean Ecostructures.
 
