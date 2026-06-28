@@ -1,0 +1,74 @@
+.
+├── .audit
+│   ├── checksums
+│   │   ├── .gitkeep
+│   │   ├── agent-hardening.sha256
+│   │   ├── bootstrap-files.sha256
+│   │   ├── first-mockup.sha256
+│   │   ├── layout-cleanup.sha256
+│   │   └── translation-hydration-fix.sha256
+│   ├── exports
+│   │   ├── .gitkeep
+│   │   └── README_EXPORT_STATUS.md
+│   ├── screenshots
+│   │   └── .gitkeep
+│   ├── tree-after-agent-hardening.txt
+│   ├── tree-after-bootstrap.txt
+│   ├── tree-after-first-mockup.txt
+│   ├── tree-after-layout-cleanup.txt
+│   ├── tree-after-packaging-notes.txt
+│   ├── tree-after-translation-hydration-fix.txt
+│   └── tree-initial.txt
+├── .gitignore
+├── .vscode
+│   ├── extensions.json
+│   ├── settings.json
+│   └── tasks.json
+├── AGENTS.md
+├── CLAUDE.md
+├── README.md
+├── adr
+│   ├── 0001-record-architecture-decisions.md
+│   ├── 0002-use-synthetic-data-only.md
+│   ├── 0003-set-nextjs-turbopack-root.md
+│   ├── 0004-demo-data-model.md
+│   └── 0005-prevent-browser-translation-hydration-mismatch.md
+├── data
+│   ├── .gitkeep
+│   ├── evidence-assets.demo.json
+│   ├── installations.demo.json
+│   ├── monitoring-events.demo.json
+│   └── reports.demo.json
+├── docs
+│   ├── DATA_MODEL.md
+│   ├── DOCUMENTATION_LANGUAGE_POLICY.md
+│   ├── NDA_CONTEXT.md
+│   ├── PACKAGING_NOTES.md
+│   └── TRACEABILITY_FLOW.md
+├── eslint.config.mjs
+├── next-env.d.ts
+├── next.config.ts
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── public
+│   ├── demo-evidence
+│   │   └── .gitkeep
+│   ├── file.svg
+│   ├── globe.svg
+│   ├── next.svg
+│   ├── vercel.svg
+│   └── window.svg
+├── src
+│   ├── app
+│   │   ├── favicon.ico
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── lib
+│   │   └── demo-data.ts
+│   └── types
+│       └── scientific-evidence.ts
+└── tsconfig.json
+
+15 directories, 57 files
