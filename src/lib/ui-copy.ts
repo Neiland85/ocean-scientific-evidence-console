@@ -1,3 +1,4 @@
+import type { ScientificFilterKey } from "@/lib/scientific-filters";
 import type { ReviewStatus } from "@/types/scientific-evidence";
 
 export type LanguageCode = "en" | "ca" | "es";
@@ -271,3 +272,68 @@ export const uiCopy: Record<LanguageCode, UiCopy> = {
 };
 
 export const languageOrder: LanguageCode[] = ["en", "ca", "es"];
+
+
+export const scientificFilterCopy: Record<
+  LanguageCode,
+  {
+    title: string;
+    subtitle: string;
+    active: string;
+    recordsShown: string;
+    preservedContext: string;
+    labels: Record<ScientificFilterKey, string>;
+  }
+> = {
+  en: {
+    title: "Scientific data filters",
+    subtitle:
+      "Filter synthetic monitoring records by review status, evidence availability, uncertainty and export readiness.",
+    active: "Active filter",
+    recordsShown: "records shown",
+    preservedContext:
+      "Filtered records preserve method, evidence, uncertainty and review context.",
+    labels: {
+      all: "All",
+      reviewed: "Reviewed",
+      partial_review: "Partial review",
+      with_evidence: "With evidence",
+      with_uncertainty: "With uncertainty",
+      exportable: "Exportable",
+    },
+  },
+  ca: {
+    title: "Filtres científics de dades",
+    subtitle:
+      "Filtra registres sintètics de monitoratge per estat de revisió, evidència disponible, incertesa i preparació per exportació.",
+    active: "Filtre actiu",
+    recordsShown: "registres visibles",
+    preservedContext:
+      "Els registres filtrats conserven el context de mètode, evidència, incertesa i revisió.",
+    labels: {
+      all: "Tot",
+      reviewed: "Revisat",
+      partial_review: "Revisió parcial",
+      with_evidence: "Amb evidència",
+      with_uncertainty: "Amb incertesa",
+      exportable: "Exportable",
+    },
+  },
+  es: {
+    title: "Filtros científicos de datos",
+    subtitle:
+      "Filtra registros sintéticos de monitorización por estado de revisión, evidencia disponible, incertidumbre y preparación para exportación.",
+    active: "Filtro activo",
+    recordsShown: "registros visibles",
+    preservedContext:
+      "Los registros filtrados conservan el contexto de método, evidencia, incertidumbre y revisión.",
+    labels: {
+      all: "Todo",
+      reviewed: "Revisado",
+      partial_review: "Revisión parcial",
+      with_evidence: "Con evidencia",
+      with_uncertainty: "Con incertidumbre",
+      exportable: "Exportable",
+    },
+  },
+};

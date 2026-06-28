@@ -4,17 +4,50 @@ import { useState } from "react";
 
 import {
   demoSummary,
+  evidenceAssets,
   latestEvidenceAssets,
   latestMonitoringEvent,
+  monitoringEvents,
   primaryInstallation,
   primaryReport,
+  reports,
 } from "@/lib/demo-data";
-
-import { languageOrder, uiCopy, type LanguageCode } from "@/lib/ui-copy";
+import {
+  filterMonitoringEvents,
+  getMonitoringFilterCount,
+  scientificFilterOrder,
+  type ScientificFilterKey,
+} from "@/lib/scientific-filters";
+import {
+  languageOrder,
+  scientificFilterCopy,
+  uiCopy,
+  type LanguageCode,
+} from "@/lib/ui-copy";
 
 export default function Home() {
   const [language, setLanguage] = useState<LanguageCode>("en");
+  const [activeFilter, setActiveFilter] =
+    useState<ScientificFilterKey>("all");
   const copy = uiCopy[language];
+  const filterCopy = scientificFilterCopy[language];
+
+  const filteredMonitoringEvents = filterMonitoringEvents(
+    monitoringEvents,
+    evidenceAssets,
+    reports,
+    activeFilter,
+  );
+
+  const selectedMonitoringEvent =
+    filteredMonitoringEvents[0] ?? latestMonitoringEvent;
+
+  const selectedEvidenceAssets = evidenceAssets.filter(
+    (asset) =>
+      asset.monitoringEventId === selectedMonitoringEvent.monitoringEventId,
+  );
+
+  const activeFilterCount = filteredMonitoringEvents.length;
 
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100">
@@ -68,6 +101,52 @@ export default function Home() {
           <MetricCard label={copy.metrics.reports} value={demoSummary.exportableReportsCount} detail={copy.metrics.reportsDetail} />
         </section>
 
+        <section className="rounded-3xl border border-slate-800 bg-slate-900 p-6">
+          <div className="flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
+            <div>
+              <p className="section-kicker">{filterCopy.title}</p>
+              <h2 className="mt-2 text-2xl font-semibold text-white">
+                {filterCopy.active}: {filterCopy.labels[activeFilter]}
+              </h2>
+              <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-400">
+                {filterCopy.subtitle}
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-cyan-400/20 bg-cyan-400/10 px-4 py-3 text-sm text-cyan-100">
+              {activeFilterCount} {filterCopy.recordsShown}
+            </div>
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            {scientificFilterOrder.map((filter) => (
+              <button
+                aria-pressed={filter === activeFilter}
+                className={
+                  filter === activeFilter
+                    ? "rounded-2xl border border-cyan-300 bg-cyan-300 px-4 py-3 text-sm font-semibold text-slate-950"
+                    : "rounded-2xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm font-semibold text-slate-300 hover:border-cyan-300 hover:text-cyan-200"
+                }
+                key={filter}
+                onClick={() => setActiveFilter(filter)}
+                type="button"
+              >
+                {filterCopy.labels[filter]} ·{" "}
+                {getMonitoringFilterCount(
+                  monitoringEvents,
+                  evidenceAssets,
+                  reports,
+                  filter,
+                )}
+              </button>
+            ))}
+          </div>
+
+          <p className="mt-5 rounded-2xl border border-emerald-300/20 bg-emerald-300/10 p-4 text-sm leading-6 text-emerald-100">
+            {filterCopy.preservedContext}
+          </p>
+        </section>
+
         <section className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
           <article className="rounded-3xl border border-slate-800 bg-slate-900 p-6">
             <p className="section-kicker">{copy.selectedInstallation}</p>
@@ -89,18 +168,18 @@ export default function Home() {
 
           <article className="rounded-3xl border border-slate-800 bg-slate-900 p-6">
             <p className="section-kicker">{copy.latestMonitoringEvent}</p>
-            <h2 className="mt-2 text-2xl font-semibold text-white">{latestMonitoringEvent.monitoringEventId}</h2>
+            <h2 className="mt-2 text-2xl font-semibold text-white">{selectedMonitoringEvent.monitoringEventId}</h2>
 
             <div className="mt-6 space-y-4">
-              <InfoRow label={copy.labels.monitoringDate} value={latestMonitoringEvent.monitoringDate} />
-              <InfoRow label={copy.labels.method} value={latestMonitoringEvent.method} />
-              <InfoRow label={copy.labels.dataSource} value={latestMonitoringEvent.dataSource} />
-              <InfoRow label={copy.labels.reviewStatus} value={copy.statusLabels[latestMonitoringEvent.reviewStatus]} />
-              <InfoRow label={copy.labels.confidence} value={latestMonitoringEvent.confidenceLevel} />
+              <InfoRow label={copy.labels.monitoringDate} value={selectedMonitoringEvent.monitoringDate} />
+              <InfoRow label={copy.labels.method} value={selectedMonitoringEvent.method} />
+              <InfoRow label={copy.labels.dataSource} value={selectedMonitoringEvent.dataSource} />
+              <InfoRow label={copy.labels.reviewStatus} value={copy.statusLabels[selectedMonitoringEvent.reviewStatus]} />
+              <InfoRow label={copy.labels.confidence} value={selectedMonitoringEvent.confidenceLevel} />
             </div>
 
             <div className="mt-6 rounded-2xl border border-rose-300/20 bg-rose-300/10 p-4 text-sm leading-6 text-rose-100">
-              {copy.uncertaintyPrefix}: {latestMonitoringEvent.uncertaintyNotes}
+              {copy.uncertaintyPrefix}: {selectedMonitoringEvent.uncertaintyNotes}
             </div>
           </article>
         </section>
@@ -110,16 +189,16 @@ export default function Home() {
             <p className="section-kicker">{copy.biodiversity}</p>
             <h3 className="mt-2 text-xl font-semibold text-white">{copy.observedSpeciesAndIndex}</h3>
 
-            <p className="mt-5 text-5xl font-semibold text-cyan-200">{latestMonitoringEvent.speciesRichness}</p>
+            <p className="mt-5 text-5xl font-semibold text-cyan-200">{selectedMonitoringEvent.speciesRichness}</p>
             <p className="mt-2 text-sm text-slate-400">{copy.syntheticObservedTaxa}</p>
 
             <div className="mt-5 rounded-2xl bg-slate-950 p-4">
-              <p className="text-sm text-slate-400">{latestMonitoringEvent.biodiversityIndex.type}</p>
-              <p className="mt-1 text-3xl font-semibold text-white">{latestMonitoringEvent.biodiversityIndex.value}</p>
+              <p className="text-sm text-slate-400">{selectedMonitoringEvent.biodiversityIndex.type}</p>
+              <p className="mt-1 text-3xl font-semibold text-white">{selectedMonitoringEvent.biodiversityIndex.value}</p>
             </div>
 
             <ul className="mt-5 space-y-2 text-sm text-slate-300">
-              {latestMonitoringEvent.speciesObserved.map((species) => (
+              {selectedMonitoringEvent.speciesObserved.map((species) => (
                 <li key={species}>• {species}</li>
               ))}
             </ul>
@@ -130,10 +209,10 @@ export default function Home() {
             <h3 className="mt-2 text-xl font-semibold text-white">{copy.environmentalReadings}</h3>
 
             <div className="mt-5 grid gap-3">
-              <InfoRow label={copy.labels.temperature} value={`${latestMonitoringEvent.sensorReading.temperatureCelsius} ºC`} />
-              <InfoRow label={copy.labels.dissolvedOxygen} value={`${latestMonitoringEvent.sensorReading.dissolvedOxygenMgL} mg/L`} />
-              <InfoRow label={copy.labels.ph} value={`${latestMonitoringEvent.sensorReading.ph}`} />
-              <InfoRow label={copy.labels.chlorophyll} value={`${latestMonitoringEvent.sensorReading.chlorophyllUgL} µg/L`} />
+              <InfoRow label={copy.labels.temperature} value={`${selectedMonitoringEvent.sensorReading.temperatureCelsius} ºC`} />
+              <InfoRow label={copy.labels.dissolvedOxygen} value={`${selectedMonitoringEvent.sensorReading.dissolvedOxygenMgL} mg/L`} />
+              <InfoRow label={copy.labels.ph} value={`${selectedMonitoringEvent.sensorReading.ph}`} />
+              <InfoRow label={copy.labels.chlorophyll} value={`${selectedMonitoringEvent.sensorReading.chlorophyllUgL} µg/L`} />
             </div>
           </article>
 
@@ -159,7 +238,7 @@ export default function Home() {
           <h2 className="mt-2 text-2xl font-semibold text-white">{copy.evidenceLinked}</h2>
 
           <div className="mt-6 grid gap-4 md:grid-cols-2">
-            {latestEvidenceAssets.map((asset) => (
+            {(selectedEvidenceAssets.length > 0 ? selectedEvidenceAssets : latestEvidenceAssets).map((asset) => (
               <article className="rounded-2xl border border-slate-800 bg-slate-950 p-5" key={asset.evidenceAssetId}>
                 <p className="text-xs uppercase tracking-[0.2em] text-cyan-200">{asset.type}</p>
                 <h3 className="mt-2 text-lg font-semibold text-white">{asset.label}</h3>

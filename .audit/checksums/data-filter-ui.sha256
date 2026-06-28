@@ -1,0 +1,6 @@
+38eb492935cf160fc4946a5ebe61eb4ea74e01587cf338d62d4c4761e84a9929  src/app/page.tsx
+fcfe061a2089019e7afcf1422d526e74285ffb374e0cd7055927804428d0db35  src/lib/ui-copy.ts
+2b927a9e24c975175a5f4c8b26c6b9a9595e9dcf352bb0bdbe3b618d0024321b  src/lib/scientific-filters.ts
+e9f39eec6952194fde82121d0ff901182e57a736f9e3a05b54d202688d1d016b  .vscode/settings.json
+82269d7a590a303c9ece8b0cb557d934c728e9d2a3b07c2c4c5e70e52f9d82ad  docs/DATA_FILTER_CONTROLS.md
+945874c53ff03c5a5c22c07eaa337f5e2faf9b78792da649c7dbe3036f533127  adr/0007-add-scientific-data-filter-controls.md
