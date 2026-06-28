@@ -4,6 +4,7 @@
 │   │   ├── .gitkeep
 │   │   ├── agent-hardening.sha256
 │   │   ├── bootstrap-files.sha256
+│   │   ├── data-filter-ui.sha256
 │   │   ├── first-mockup.sha256
 │   │   ├── layout-cleanup.sha256
 │   │   ├── packaging-notes.sha256
@@ -23,6 +24,7 @@
 │   │   └── .gitkeep
 │   ├── tree-after-agent-hardening.txt
 │   ├── tree-after-bootstrap.txt
+│   ├── tree-after-data-filter-ui.txt
 │   ├── tree-after-first-mockup.txt
 │   ├── tree-after-layout-cleanup.txt
 │   ├── tree-after-packaging-notes.txt
@@ -88,4 +90,4 @@
 │       └── scientific-evidence.ts
 └── tsconfig.json
 
-16 directories, 73 files
+16 directories, 75 files
