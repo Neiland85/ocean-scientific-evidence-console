@@ -84,7 +84,9 @@ export default function Home() {
                       ? "rounded-full border border-cyan-300 bg-cyan-300 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-slate-950"
                       : "rounded-full border border-slate-700 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-slate-300 hover:border-cyan-300 hover:text-cyan-200"
                   }
-                  aria-pressed={code === language ? true : false}
+                  {...(code === language
+                    ? { "aria-pressed": "true" as const }
+                    : { "aria-pressed": "false" as const })}
                 >
                   {code}
                 </button>

@@ -24,7 +24,9 @@ export function Filter3DCard({
 
   return (
     <button
-      aria-pressed={active}
+      {...(active
+        ? { "aria-pressed": "true" as const }
+        : { "aria-pressed": "false" as const })}
       className={
         active
           ? "group relative min-h-44 overflow-hidden rounded-3xl border border-cyan-300 bg-cyan-300/15 p-5 text-left shadow-2xl shadow-cyan-950/40 transition duration-300 hover:-translate-y-1"
