@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import { Filter3DCard } from "@/components/filter-3d-card";
 import {
   demoSummary,
   evidenceAssets,
@@ -118,27 +119,22 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-6 flex flex-wrap gap-3">
+          <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {scientificFilterOrder.map((filter) => (
-              <button
-                aria-pressed={filter === activeFilter}
-                className={
-                  filter === activeFilter
-                    ? "rounded-2xl border border-cyan-300 bg-cyan-300 px-4 py-3 text-sm font-semibold text-slate-950"
-                    : "rounded-2xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm font-semibold text-slate-300 hover:border-cyan-300 hover:text-cyan-200"
-                }
-                key={filter}
-                onClick={() => setActiveFilter(filter)}
-                type="button"
-              >
-                {filterCopy.labels[filter]} ·{" "}
-                {getMonitoringFilterCount(
+              <Filter3DCard
+                active={filter === activeFilter}
+                count={getMonitoringFilterCount(
                   monitoringEvents,
                   evidenceAssets,
                   reports,
                   filter,
                 )}
-              </button>
+                countLabel={filterCopy.recordsShown}
+                filter={filter}
+                key={filter}
+                label={filterCopy.labels[filter]}
+                onClick={() => setActiveFilter(filter)}
+              />
             ))}
           </div>
 
