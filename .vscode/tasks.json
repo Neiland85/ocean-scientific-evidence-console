@@ -1,0 +1,36 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "dev: mockup",
+      "type": "shell",
+      "command": "npm run dev",
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "check: lint",
+      "type": "shell",
+      "command": "npm run lint",
+      "problemMatcher": []
+    },
+    {
+      "label": "check: build",
+      "type": "shell",
+      "command": "npm run build",
+      "problemMatcher": []
+    },
+    {
+      "label": "evidence: tree",
+      "type": "shell",
+      "command": "tree -a -I \"node_modules|.git|.next|dist|coverage\" > .audit/tree-current.txt && cat .audit/tree-current.txt",
+      "problemMatcher": []
+    },
+    {
+      "label": "evidence: hash demo data",
+      "type": "shell",
+      "command": "shasum -a 256 data/* 2>/dev/null > .audit/checksums/demo-data.sha256 || true",
+      "problemMatcher": []
+    }
+  ]
+}

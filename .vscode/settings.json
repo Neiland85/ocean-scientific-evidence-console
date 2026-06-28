@@ -1,0 +1,35 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "files.exclude": {
+    ".next": true,
+    "node_modules": true,
+    "dist": true,
+    "coverage": true
+  },
+  "search.exclude": {
+    ".next": true,
+    "node_modules": true,
+    "dist": true,
+    "coverage": true
+  },
+  "cSpell.words": [
+    "Ocean",
+    "Ecostructures",
+    "BioBoosting",
+    "biodiversity",
+    "traceability",
+    "PostGIS",
+    "TimescaleDB",
+    "evidence",
+    "hash",
+    "NDA",
+    "Clarity"
+  ],
+  "telemetry.telemetryLevel": "off"
+}

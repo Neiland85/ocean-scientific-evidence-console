@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "eamodio.gitlens",
+    "usernamehw.errorlens",
+    "christian-kohler.path-intellisense",
+    "streetsidesoftware.code-spell-checker",
+    "yzhang.markdown-all-in-one",
+    "redhat.vscode-yaml"
+  ]
+}
