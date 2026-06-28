@@ -2,6 +2,7 @@
 ├── .audit
 │   ├── checksums
 │   │   ├── .gitkeep
+│   │   ├── agent-hardening.sha256
 │   │   └── bootstrap-files.sha256
 │   ├── exports
 │   │   └── .gitkeep
@@ -49,4 +50,4 @@
 │       └── page.tsx
 └── tsconfig.json
 
-13 directories, 37 files
+13 directories, 38 files
