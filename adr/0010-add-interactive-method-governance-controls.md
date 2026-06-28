@@ -35,5 +35,5 @@ The implementation remains local, synthetic, auditable and free of real Ocean Ec
 
 - Use real project thresholds: rejected.
 - Persist governance parameters: deferred.
-- Add backend decisioning: deferred.
+- Add backend decisional: deferred.
 - Use chart libraries: rejected for this iteration.

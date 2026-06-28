@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import { Filter3DCard } from "@/components/filter-3d-card";
 import { FilterInsightPanel } from "@/components/filter-insight-panel";
+import { MethodGovernancePanel } from "@/components/method-governance-panel";
 import {
   demoSummary,
   evidenceAssets,
@@ -30,8 +31,7 @@ import {
 
 export default function Home() {
   const [language, setLanguage] = useState<LanguageCode>("en");
-  const [activeFilter, setActiveFilter] =
-    useState<ScientificFilterKey>("all");
+  const [activeFilter, setActiveFilter] = useState<ScientificFilterKey>("all");
   const copy = uiCopy[language];
   const filterCopy = scientificFilterCopy[language];
 
@@ -62,9 +62,15 @@ export default function Home() {
         <header className="rounded-3xl border border-cyan-400/20 bg-slate-900/80 p-8 shadow-2xl shadow-cyan-950/30">
           <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
             <div className="flex flex-wrap gap-3 text-xs uppercase tracking-[0.22em] text-cyan-200">
-              <span className="rounded-full border border-cyan-300/30 px-3 py-1">{copy.badges.nda}</span>
-              <span className="rounded-full border border-cyan-300/30 px-3 py-1">{copy.badges.synthetic}</span>
-              <span className="rounded-full border border-cyan-300/30 px-3 py-1">{copy.badges.documentation}</span>
+              <span className="rounded-full border border-cyan-300/30 px-3 py-1">
+                {copy.badges.nda}
+              </span>
+              <span className="rounded-full border border-cyan-300/30 px-3 py-1">
+                {copy.badges.synthetic}
+              </span>
+              <span className="rounded-full border border-cyan-300/30 px-3 py-1">
+                {copy.badges.documentation}
+              </span>
             </div>
 
             <div className="flex gap-2">
@@ -78,7 +84,7 @@ export default function Home() {
                       ? "rounded-full border border-cyan-300 bg-cyan-300 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-slate-950"
                       : "rounded-full border border-slate-700 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-slate-300 hover:border-cyan-300 hover:text-cyan-200"
                   }
-                  aria-pressed={code === language}
+                  aria-pressed={code === language ? true : false}
                 >
                   {code}
                 </button>
@@ -86,7 +92,9 @@ export default function Home() {
             </div>
           </div>
 
-          <p className="mb-3 text-sm font-semibold text-cyan-200">{copy.languageName}</p>
+          <p className="mb-3 text-sm font-semibold text-cyan-200">
+            {copy.languageName}
+          </p>
 
           <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-white md:text-6xl">
             {copy.title}
@@ -102,10 +110,26 @@ export default function Home() {
         </header>
 
         <section className="grid gap-4 md:grid-cols-4">
-          <MetricCard label={copy.metrics.installations} value={demoSummary.installationsCount} detail={copy.metrics.installationsDetail} />
-          <MetricCard label={copy.metrics.monitoringEvents} value={demoSummary.monitoringEventsCount} detail={copy.metrics.monitoringEventsDetail} />
-          <MetricCard label={copy.metrics.evidenceAssets} value={demoSummary.evidenceAssetsCount} detail={copy.metrics.evidenceAssetsDetail} />
-          <MetricCard label={copy.metrics.reports} value={demoSummary.exportableReportsCount} detail={copy.metrics.reportsDetail} />
+          <MetricCard
+            label={copy.metrics.installations}
+            value={demoSummary.installationsCount}
+            detail={copy.metrics.installationsDetail}
+          />
+          <MetricCard
+            label={copy.metrics.monitoringEvents}
+            value={demoSummary.monitoringEventsCount}
+            detail={copy.metrics.monitoringEventsDetail}
+          />
+          <MetricCard
+            label={copy.metrics.evidenceAssets}
+            value={demoSummary.evidenceAssetsCount}
+            detail={copy.metrics.evidenceAssetsDetail}
+          />
+          <MetricCard
+            label={copy.metrics.reports}
+            value={demoSummary.exportableReportsCount}
+            detail={copy.metrics.reportsDetail}
+          />
         </section>
 
         <section className="rounded-3xl border border-slate-800 bg-slate-900 p-6">
@@ -146,6 +170,11 @@ export default function Home() {
 
           <FilterInsightPanel insight={activeFilterInsight} />
 
+          <MethodGovernancePanel
+            activeFilterLabel={filterCopy.labels[activeFilter]}
+            language={language}
+          />
+
           <p className="mt-5 rounded-2xl border border-emerald-300/20 bg-emerald-300/10 p-4 text-sm leading-6 text-emerald-100">
             {filterCopy.preservedContext}
           </p>
@@ -154,15 +183,35 @@ export default function Home() {
         <section className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
           <article className="rounded-3xl border border-slate-800 bg-slate-900 p-6">
             <p className="section-kicker">{copy.selectedInstallation}</p>
-            <h2 className="mt-2 text-2xl font-semibold text-white">{primaryInstallation.installationId}</h2>
+            <h2 className="mt-2 text-2xl font-semibold text-white">
+              {primaryInstallation.installationId}
+            </h2>
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <InfoRow label={copy.labels.location} value={primaryInstallation.locationName} />
-              <InfoRow label={copy.labels.coordinates} value={primaryInstallation.coordinates} />
-              <InfoRow label={copy.labels.structure} value={primaryInstallation.structureType} />
-              <InfoRow label={copy.labels.deployment} value={primaryInstallation.deploymentDate} />
-              <InfoRow label={copy.labels.baseline} value={primaryInstallation.baselineReference} />
-              <InfoRow label={copy.labels.controlSite} value={primaryInstallation.controlSite} />
+              <InfoRow
+                label={copy.labels.location}
+                value={primaryInstallation.locationName}
+              />
+              <InfoRow
+                label={copy.labels.coordinates}
+                value={primaryInstallation.coordinates}
+              />
+              <InfoRow
+                label={copy.labels.structure}
+                value={primaryInstallation.structureType}
+              />
+              <InfoRow
+                label={copy.labels.deployment}
+                value={primaryInstallation.deploymentDate}
+              />
+              <InfoRow
+                label={copy.labels.baseline}
+                value={primaryInstallation.baselineReference}
+              />
+              <InfoRow
+                label={copy.labels.controlSite}
+                value={primaryInstallation.controlSite}
+              />
             </div>
 
             <div className="mt-6 rounded-2xl border border-cyan-400/20 bg-cyan-400/10 p-4 text-sm leading-6 text-cyan-100">
@@ -172,18 +221,36 @@ export default function Home() {
 
           <article className="rounded-3xl border border-slate-800 bg-slate-900 p-6">
             <p className="section-kicker">{copy.latestMonitoringEvent}</p>
-            <h2 className="mt-2 text-2xl font-semibold text-white">{selectedMonitoringEvent.monitoringEventId}</h2>
+            <h2 className="mt-2 text-2xl font-semibold text-white">
+              {selectedMonitoringEvent.monitoringEventId}
+            </h2>
 
             <div className="mt-6 space-y-4">
-              <InfoRow label={copy.labels.monitoringDate} value={selectedMonitoringEvent.monitoringDate} />
-              <InfoRow label={copy.labels.method} value={selectedMonitoringEvent.method} />
-              <InfoRow label={copy.labels.dataSource} value={selectedMonitoringEvent.dataSource} />
-              <InfoRow label={copy.labels.reviewStatus} value={copy.statusLabels[selectedMonitoringEvent.reviewStatus]} />
-              <InfoRow label={copy.labels.confidence} value={selectedMonitoringEvent.confidenceLevel} />
+              <InfoRow
+                label={copy.labels.monitoringDate}
+                value={selectedMonitoringEvent.monitoringDate}
+              />
+              <InfoRow
+                label={copy.labels.method}
+                value={selectedMonitoringEvent.method}
+              />
+              <InfoRow
+                label={copy.labels.dataSource}
+                value={selectedMonitoringEvent.dataSource}
+              />
+              <InfoRow
+                label={copy.labels.reviewStatus}
+                value={copy.statusLabels[selectedMonitoringEvent.reviewStatus]}
+              />
+              <InfoRow
+                label={copy.labels.confidence}
+                value={selectedMonitoringEvent.confidenceLevel}
+              />
             </div>
 
             <div className="mt-6 rounded-2xl border border-rose-300/20 bg-rose-300/10 p-4 text-sm leading-6 text-rose-100">
-              {copy.uncertaintyPrefix}: {selectedMonitoringEvent.uncertaintyNotes}
+              {copy.uncertaintyPrefix}:{" "}
+              {selectedMonitoringEvent.uncertaintyNotes}
             </div>
           </article>
         </section>
@@ -191,14 +258,24 @@ export default function Home() {
         <section className="grid gap-6 lg:grid-cols-3">
           <article className="rounded-3xl border border-slate-800 bg-slate-900 p-6">
             <p className="section-kicker">{copy.biodiversity}</p>
-            <h3 className="mt-2 text-xl font-semibold text-white">{copy.observedSpeciesAndIndex}</h3>
+            <h3 className="mt-2 text-xl font-semibold text-white">
+              {copy.observedSpeciesAndIndex}
+            </h3>
 
-            <p className="mt-5 text-5xl font-semibold text-cyan-200">{selectedMonitoringEvent.speciesRichness}</p>
-            <p className="mt-2 text-sm text-slate-400">{copy.syntheticObservedTaxa}</p>
+            <p className="mt-5 text-5xl font-semibold text-cyan-200">
+              {selectedMonitoringEvent.speciesRichness}
+            </p>
+            <p className="mt-2 text-sm text-slate-400">
+              {copy.syntheticObservedTaxa}
+            </p>
 
             <div className="mt-5 rounded-2xl bg-slate-950 p-4">
-              <p className="text-sm text-slate-400">{selectedMonitoringEvent.biodiversityIndex.type}</p>
-              <p className="mt-1 text-3xl font-semibold text-white">{selectedMonitoringEvent.biodiversityIndex.value}</p>
+              <p className="text-sm text-slate-400">
+                {selectedMonitoringEvent.biodiversityIndex.type}
+              </p>
+              <p className="mt-1 text-3xl font-semibold text-white">
+                {selectedMonitoringEvent.biodiversityIndex.value}
+              </p>
             </div>
 
             <ul className="mt-5 space-y-2 text-sm text-slate-300">
@@ -210,25 +287,53 @@ export default function Home() {
 
           <article className="rounded-3xl border border-slate-800 bg-slate-900 p-6">
             <p className="section-kicker">{copy.sensorContext}</p>
-            <h3 className="mt-2 text-xl font-semibold text-white">{copy.environmentalReadings}</h3>
+            <h3 className="mt-2 text-xl font-semibold text-white">
+              {copy.environmentalReadings}
+            </h3>
 
             <div className="mt-5 grid gap-3">
-              <InfoRow label={copy.labels.temperature} value={`${selectedMonitoringEvent.sensorReading.temperatureCelsius} ºC`} />
-              <InfoRow label={copy.labels.dissolvedOxygen} value={`${selectedMonitoringEvent.sensorReading.dissolvedOxygenMgL} mg/L`} />
-              <InfoRow label={copy.labels.ph} value={`${selectedMonitoringEvent.sensorReading.ph}`} />
-              <InfoRow label={copy.labels.chlorophyll} value={`${selectedMonitoringEvent.sensorReading.chlorophyllUgL} µg/L`} />
+              <InfoRow
+                label={copy.labels.temperature}
+                value={`${selectedMonitoringEvent.sensorReading.temperatureCelsius} ºC`}
+              />
+              <InfoRow
+                label={copy.labels.dissolvedOxygen}
+                value={`${selectedMonitoringEvent.sensorReading.dissolvedOxygenMgL} mg/L`}
+              />
+              <InfoRow
+                label={copy.labels.ph}
+                value={`${selectedMonitoringEvent.sensorReading.ph}`}
+              />
+              <InfoRow
+                label={copy.labels.chlorophyll}
+                value={`${selectedMonitoringEvent.sensorReading.chlorophyllUgL} µg/L`}
+              />
             </div>
           </article>
 
           <article className="rounded-3xl border border-slate-800 bg-slate-900 p-6">
             <p className="section-kicker">{copy.export}</p>
-            <h3 className="mt-2 text-xl font-semibold text-white">{copy.traceableReportDraft}</h3>
+            <h3 className="mt-2 text-xl font-semibold text-white">
+              {copy.traceableReportDraft}
+            </h3>
 
             <div className="mt-5 space-y-4">
-              <InfoRow label={copy.labels.reportId} value={primaryReport.reportId} />
-              <InfoRow label={copy.labels.status} value={primaryReport.reportStatus} />
-              <InfoRow label={copy.labels.version} value={primaryReport.exportVersion} />
-              <InfoRow label={copy.labels.generated} value={primaryReport.generatedAt} />
+              <InfoRow
+                label={copy.labels.reportId}
+                value={primaryReport.reportId}
+              />
+              <InfoRow
+                label={copy.labels.status}
+                value={primaryReport.reportStatus}
+              />
+              <InfoRow
+                label={copy.labels.version}
+                value={primaryReport.exportVersion}
+              />
+              <InfoRow
+                label={copy.labels.generated}
+                value={primaryReport.generatedAt}
+              />
             </div>
 
             <p className="mt-5 rounded-2xl border border-amber-300/20 bg-amber-300/10 p-4 text-sm leading-6 text-amber-100">
@@ -239,19 +344,43 @@ export default function Home() {
 
         <section className="rounded-3xl border border-slate-800 bg-slate-900 p-6">
           <p className="section-kicker">{copy.evidenceChain}</p>
-          <h2 className="mt-2 text-2xl font-semibold text-white">{copy.evidenceLinked}</h2>
+          <h2 className="mt-2 text-2xl font-semibold text-white">
+            {copy.evidenceLinked}
+          </h2>
 
           <div className="mt-6 grid gap-4 md:grid-cols-2">
-            {(selectedEvidenceAssets.length > 0 ? selectedEvidenceAssets : latestEvidenceAssets).map((asset) => (
-              <article className="rounded-2xl border border-slate-800 bg-slate-950 p-5" key={asset.evidenceAssetId}>
-                <p className="text-xs uppercase tracking-[0.2em] text-cyan-200">{asset.type}</p>
-                <h3 className="mt-2 text-lg font-semibold text-white">{asset.label}</h3>
+            {(selectedEvidenceAssets.length > 0
+              ? selectedEvidenceAssets
+              : latestEvidenceAssets
+            ).map((asset) => (
+              <article
+                className="rounded-2xl border border-slate-800 bg-slate-950 p-5"
+                key={asset.evidenceAssetId}
+              >
+                <p className="text-xs uppercase tracking-[0.2em] text-cyan-200">
+                  {asset.type}
+                </p>
+                <h3 className="mt-2 text-lg font-semibold text-white">
+                  {asset.label}
+                </h3>
 
                 <div className="mt-4 space-y-3">
-                  <InfoRow label={copy.labels.captureDate} value={asset.captureDate} />
-                  <InfoRow label={copy.labels.method} value={asset.captureMethod} />
-                  <InfoRow label={copy.labels.rawReference} value={asset.rawDataReference} />
-                  <InfoRow label={copy.labels.hash} value={asset.evidenceHash} />
+                  <InfoRow
+                    label={copy.labels.captureDate}
+                    value={asset.captureDate}
+                  />
+                  <InfoRow
+                    label={copy.labels.method}
+                    value={asset.captureMethod}
+                  />
+                  <InfoRow
+                    label={copy.labels.rawReference}
+                    value={asset.rawDataReference}
+                  />
+                  <InfoRow
+                    label={copy.labels.hash}
+                    value={asset.evidenceHash}
+                  />
                 </div>
               </article>
             ))}
@@ -287,8 +416,12 @@ function MetricCard({
 function InfoRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-2xl border border-slate-800 bg-slate-950 p-4">
-      <p className="text-xs uppercase tracking-[0.18em] text-slate-500">{label}</p>
-      <p className="mt-2 break-words text-sm font-medium text-slate-100">{value}</p>
+      <p className="text-xs uppercase tracking-[0.18em] text-slate-500">
+        {label}
+      </p>
+      <p className="mt-2 break-words text-sm font-medium text-slate-100">
+        {value}
+      </p>
     </div>
   );
 }
