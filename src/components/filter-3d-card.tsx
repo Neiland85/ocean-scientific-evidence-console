@@ -1,5 +1,3 @@
-"use client";
-
 import { filterMiniChartBars } from "@/lib/filter-visuals";
 import type { ScientificFilterKey } from "@/lib/scientific-filters";
 
