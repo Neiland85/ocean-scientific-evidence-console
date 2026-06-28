@@ -1,0 +1,3 @@
+1d9c779b29bf3800e0cc03ab69719e3936706f6bb2759ae4a47e3a9389bbda1b  src/app/page.tsx
+ab027e87405bbd8cb5826374a34b5f2d755048ddf7f6b0f91373e7d9c64a1479  docs/UI_LANGUAGE_SWITCH.md
+d0c93ce89ff0097ebf0020f6e101e49c2d52c4cef2ae59d1f3f729ea385b7972  adr/0006-use-controlled-ui-language-switch.md
