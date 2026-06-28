@@ -1,0 +1,105 @@
+.
+├── .audit
+│   ├── checksums
+│   │   ├── .gitkeep
+│   │   ├── agent-hardening.sha256
+│   │   ├── bootstrap-files.sha256
+│   │   ├── data-filter-ui.sha256
+│   │   ├── filter-3d-visuals.sha256
+│   │   ├── first-mockup.sha256
+│   │   ├── layout-cleanup.sha256
+│   │   ├── packaging-notes.sha256
+│   │   ├── translation-hydration-fix.sha256
+│   │   ├── ui-copy-extraction.sha256
+│   │   └── ui-language-switch.sha256
+│   ├── exports
+│   │   ├── .gitkeep
+│   │   ├── OCEAN_SCIENTIFIC_EVIDENCE_CONSOLE_v0.1.0
+│   │   │   ├── CHECKSUMS.sha256
+│   │   │   ├── DEMO_READINESS.md
+│   │   │   ├── README_DELIVERY.md
+│   │   │   ├── SCREENSHOT_GUIDE.md
+│   │   │   └── TREE.txt
+│   │   └── README_EXPORT_STATUS.md
+│   ├── screenshots
+│   │   └── .gitkeep
+│   ├── tree-after-agent-hardening.txt
+│   ├── tree-after-bootstrap.txt
+│   ├── tree-after-data-filter-ui.txt
+│   ├── tree-after-filter-3d-visuals.txt
+│   ├── tree-after-filter-operational-insights.txt
+│   ├── tree-after-first-mockup.txt
+│   ├── tree-after-layout-cleanup.txt
+│   ├── tree-after-packaging-notes.txt
+│   ├── tree-after-translation-hydration-fix.txt
+│   ├── tree-after-ui-copy-extraction.txt
+│   ├── tree-after-ui-language-switch.txt
+│   └── tree-initial.txt
+├── .gitignore
+├── .vscode
+│   ├── extensions.json
+│   ├── settings.json
+│   └── tasks.json
+├── AGENTS.md
+├── CLAUDE.md
+├── README.md
+├── adr
+│   ├── 0001-record-architecture-decisions.md
+│   ├── 0002-use-synthetic-data-only.md
+│   ├── 0003-set-nextjs-turbopack-root.md
+│   ├── 0004-demo-data-model.md
+│   ├── 0005-prevent-browser-translation-hydration-mismatch.md
+│   ├── 0006-use-controlled-ui-language-switch.md
+│   ├── 0007-add-scientific-data-filter-controls.md
+│   ├── 0008-add-filter-mini-3d-visuals.md
+│   └── 0009-add-synthetic-operational-filter-insights.md
+├── data
+│   ├── .gitkeep
+│   ├── evidence-assets.demo.json
+│   ├── installations.demo.json
+│   ├── monitoring-events.demo.json
+│   └── reports.demo.json
+├── docs
+│   ├── DATA_FILTER_CONTROLS.md
+│   ├── DATA_MODEL.md
+│   ├── DOCUMENTATION_LANGUAGE_POLICY.md
+│   ├── FILTER_3D_VISUALS.md
+│   ├── FILTER_SYNTHETIC_OPERATIONAL_INSIGHTS.md
+│   ├── NDA_CONTEXT.md
+│   ├── PACKAGING_NOTES.md
+│   ├── TRACEABILITY_FLOW.md
+│   └── UI_LANGUAGE_SWITCH.md
+├── eslint.config.mjs
+├── next-env.d.ts
+├── next.config.ts
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── public
+│   ├── demo-evidence
+│   │   └── .gitkeep
+│   ├── file.svg
+│   ├── globe.svg
+│   ├── next.svg
+│   ├── vercel.svg
+│   └── window.svg
+├── src
+│   ├── app
+│   │   ├── favicon.ico
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── components
+│   │   ├── filter-3d-card.tsx
+│   │   └── filter-insight-panel.tsx
+│   ├── lib
+│   │   ├── demo-data.ts
+│   │   ├── filter-insights.ts
+│   │   ├── filter-visuals.ts
+│   │   ├── scientific-filters.ts
+│   │   └── ui-copy.ts
+│   └── types
+│       └── scientific-evidence.ts
+└── tsconfig.json
+
+17 directories, 86 files

@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import { Filter3DCard } from "@/components/filter-3d-card";
+import { FilterInsightPanel } from "@/components/filter-insight-panel";
 import {
   demoSummary,
   evidenceAssets,
@@ -13,6 +14,7 @@ import {
   primaryReport,
   reports,
 } from "@/lib/demo-data";
+import { getSyntheticOperationalInsight } from "@/lib/filter-insights";
 import {
   filterMonitoringEvents,
   getMonitoringFilterCount,
@@ -49,6 +51,10 @@ export default function Home() {
   );
 
   const activeFilterCount = filteredMonitoringEvents.length;
+  const activeFilterInsight = getSyntheticOperationalInsight(
+    language,
+    activeFilter,
+  );
 
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100">
@@ -137,6 +143,8 @@ export default function Home() {
               />
             ))}
           </div>
+
+          <FilterInsightPanel insight={activeFilterInsight} />
 
           <p className="mt-5 rounded-2xl border border-emerald-300/20 bg-emerald-300/10 p-4 text-sm leading-6 text-emerald-100">
             {filterCopy.preservedContext}
