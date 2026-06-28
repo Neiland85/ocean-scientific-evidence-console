@@ -518,16 +518,16 @@ export function MethodGovernancePanel({
                   value={value}
                 />
 
-                <div className="mt-3 h-3 overflow-hidden rounded-full bg-slate-900">
-                  <div
-                    className={
-                      passes
-                        ? "h-full rounded-full bg-emerald-400"
-                        : "h-full rounded-full bg-red-400"
-                    }
-                    style={{ width: `${value}%` }}
-                  />
-                </div>
+                <progress
+                  aria-label={parameterCopy.label}
+                  className={
+                    passes
+                      ? "governance-progress governance-progress-pass"
+                      : "governance-progress governance-progress-review"
+                  }
+                  max={100}
+                  value={value}
+                />
               </div>
             </article>
           );
