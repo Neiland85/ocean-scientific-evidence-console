@@ -14,11 +14,11 @@ This mockup is not an official Ocean Ecostructures system, not a scientific vali
 
 Aquest mockup s'ha desenvolupat sota el marc de confidencialitat `OE-CLARITY-20260624-NDA-001`.
 
-No conté dades reals, privades, internes ni confidencials d'Ocean Ecostructures.
+No conté dades reals, privades, internes ni confidencial d'Ocean Ecostructures.
 
-Tots els registres, mesures, ubicacions, revisors, referències d'evidència i informes visibles són dades sintètiques de demostració creades únicament per validar un flux científic-operatiu.
+Tots els registres, mesures, ubicaciones, revisors, references d'evidència i informes visibles són dades sintètiques de demostració creades únicamente per validar un flux científic-operatiu.
 
-Aquest mockup no és un sistema oficial d'Ocean Ecostructures, no és una validació científica, no és una certificació ecològica, no és una plataforma en producció i no substitueix cap sistema intern existent.
+Aquest mockup no és un sistema oficial d'Ocean Ecostructures, no és una validació científica, no és una certificació ecológica, no és una plataforma en producción i no substitueix cap sistema intern existent.
 
 ## Español
 

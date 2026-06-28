@@ -14,15 +14,15 @@ This order is intentional: international technical clarity first, Catalan instit
 
 ## Català
 
-La llengua principal del projecte és l'anglès.
+La lengua principal del projecte és l'anglès.
 
-Tota la documentació estratègica, documental i orientada al client ha de seguir aquest ordre:
+Tota la documentació estratégica, documental i orientada al client ha de seguir aquest order:
 
 1. Anglès
 2. Català
 3. Castellà
 
-Aquest ordre és intencionat: claredat tècnica internacional primer, proximitat institucional catalana després i accessibilitat operativa en castellà finalment.
+Aquest ordre és intencional: claread técnica internacional primer, proximity institucional catalana después i accessibility operativa en castellà finalment.
 
 ## Español
 
