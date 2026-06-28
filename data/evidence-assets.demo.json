@@ -1,0 +1,24 @@
+[
+  {
+    "evidenceAssetId": "EVD-DEMO-ROV-001",
+    "monitoringEventId": "MON-DEMO-2026-02-14-A",
+    "type": "video",
+    "label": "ROV transect clip — synthetic demo",
+    "rawDataReference": "demo://raw/monitoring/MON-DEMO-2026-02-14-A/rov-transect.mp4",
+    "captureMethod": "ROV visual survey",
+    "captureDate": "2026-02-14",
+    "evidenceHash": "sha256:demo_video_001_reference_only",
+    "reviewStatus": "partial_review"
+  },
+  {
+    "evidenceAssetId": "EVD-DEMO-IMG-001",
+    "monitoringEventId": "MON-DEMO-2026-02-14-A",
+    "type": "photo",
+    "label": "Frame extraction — synthetic demo",
+    "rawDataReference": "demo://raw/monitoring/MON-DEMO-2026-02-14-A/frame-001.jpg",
+    "captureMethod": "ROV image frame review",
+    "captureDate": "2026-02-14",
+    "evidenceHash": "sha256:demo_image_001_reference_only",
+    "reviewStatus": "partial_review"
+  }
+]

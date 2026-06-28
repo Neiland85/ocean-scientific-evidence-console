@@ -1,0 +1,26 @@
+[
+  {
+    "installationId": "DEMO-LBU-003",
+    "locationName": "Mediterranean Demo Harbour — North Basin",
+    "coordinates": "41.000000, 2.000000",
+    "structureType": "Synthetic Life Boosting Unit demo",
+    "deploymentDate": "2025-11-03",
+    "status": "active-demo",
+    "monitoringStatus": "latest-event-partially-reviewed",
+    "baselineReference": "BASE-DEMO-2025-11-03",
+    "controlSite": "CONTROL-DEMO-NORTH-WALL",
+    "lastUpdated": "2026-02-15T10:30:00Z"
+  },
+  {
+    "installationId": "DEMO-LBU-007",
+    "locationName": "Mediterranean Demo Harbour — Outer Breakwater",
+    "coordinates": "41.002000, 2.004000",
+    "structureType": "Synthetic biomimetic wall module",
+    "deploymentDate": "2025-09-18",
+    "status": "active-demo",
+    "monitoringStatus": "review-pending",
+    "baselineReference": "BASE-DEMO-2025-09-18",
+    "controlSite": "CONTROL-DEMO-OUTER-WALL",
+    "lastUpdated": "2026-02-12T08:15:00Z"
+  }
+]

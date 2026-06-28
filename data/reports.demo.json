@@ -1,0 +1,14 @@
+[
+  {
+    "reportId": "RPT-DEMO-2026-02-LBU003",
+    "installationId": "DEMO-LBU-003",
+    "includedMonitoringEvents": [
+      "MON-DEMO-2026-01-10-A",
+      "MON-DEMO-2026-02-14-A"
+    ],
+    "reportStatus": "exportable-demo-draft",
+    "exportVersion": "demo-v0.1",
+    "generatedAt": "2026-02-15T11:00:00Z",
+    "disclaimer": "Synthetic demo report. Not an official Ocean Ecostructures report. Not scientific validation. Not ecological certification."
+  }
+]

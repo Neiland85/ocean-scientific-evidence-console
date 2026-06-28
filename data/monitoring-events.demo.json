@@ -1,0 +1,62 @@
+[
+  {
+    "monitoringEventId": "MON-DEMO-2026-02-14-A",
+    "installationId": "DEMO-LBU-003",
+    "monitoringDate": "2026-02-14",
+    "method": "ROV visual survey plus image review",
+    "dataSource": "synthetic ROV demo evidence",
+    "speciesObserved": [
+      "Sabella spallanzanii",
+      "Parablennius gattorugine",
+      "Palaemon elegans",
+      "Cystoseira sp."
+    ],
+    "speciesRichness": 18,
+    "biodiversityIndex": {
+      "type": "Shannon demo",
+      "value": 2.31
+    },
+    "biomassEstimateKg": 4.8,
+    "sensorReading": {
+      "temperatureCelsius": 15.9,
+      "dissolvedOxygenMgL": 7.1,
+      "ph": 8.05,
+      "chlorophyllUgL": 1.8
+    },
+    "reviewStatus": "partial_review",
+    "confidenceLevel": "medium-high",
+    "uncertaintyNotes": "Synthetic demo record. Possible seasonal effect. Compare against baseline and control site before interpreting impact.",
+    "reviewedBy": "Demo scientific reviewer — not a real person",
+    "evidenceHash": "sha256:demo_7d4f2c9b6e_reference_only",
+    "lastUpdated": "2026-02-15T10:30:00Z"
+  },
+  {
+    "monitoringEventId": "MON-DEMO-2026-01-10-A",
+    "installationId": "DEMO-LBU-003",
+    "monitoringDate": "2026-01-10",
+    "method": "ROV visual survey",
+    "dataSource": "synthetic ROV demo evidence",
+    "speciesObserved": [
+      "Sabella spallanzanii",
+      "Palaemon elegans"
+    ],
+    "speciesRichness": 11,
+    "biodiversityIndex": {
+      "type": "Shannon demo",
+      "value": 1.84
+    },
+    "biomassEstimateKg": 3.1,
+    "sensorReading": {
+      "temperatureCelsius": 14.8,
+      "dissolvedOxygenMgL": 7.4,
+      "ph": 8.08,
+      "chlorophyllUgL": 1.4
+    },
+    "reviewStatus": "reviewed",
+    "confidenceLevel": "medium",
+    "uncertaintyNotes": "Synthetic demo record. Earlier campaign with lower image coverage.",
+    "reviewedBy": "Demo scientific reviewer — not a real person",
+    "evidenceHash": "sha256:demo_2a9c1b4d_reference_only",
+    "lastUpdated": "2026-01-11T09:10:00Z"
+  }
+]
