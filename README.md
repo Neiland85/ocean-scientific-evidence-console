@@ -1,3 +1,10 @@
+# OCEAN Scientific Evidence Console
+
+> Proprietary software. All rights reserved.  
+> Copyright © 2026 Clarity Structures Digital S.L.  
+> Author: Neil Muñoz Lago / Neiland85.  
+> No open-source license is granted. See `LICENSE` and `NOTICE.md`.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
